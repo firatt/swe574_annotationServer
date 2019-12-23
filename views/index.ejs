@@ -1,0 +1,23 @@
+<link href="/style.css" rel="stylesheet" type="text/css">
+<script src="/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="/funcs.js"></script>
+<h1>Hi <%= name %> !</h1>
+
+<ol>
+  <% myArr.forEach((e)=>{ %>
+  <li>
+    <span id="keys">message:</span> <span id="values"> "<%= e.body %>" </span> <span id="seperator">#</span> <br>
+    <span id="keys">phrase:</span> <span id="values"> "<%= e.target.selector[1].exact %>"</span> <span
+      id="seperator">#</span> <br>
+    <span id="keys">username:</span> <span id="values"> "<%= e.userName %>"</span> <span id="seperator">#</span>
+    <br>
+    <span id="keys"> <a href="<%= e.target.source %>" target="_blank">link</a> </span>
+    <button class="delete" data-id="<%= e.dbId %>">delete</button>
+  </li>
+  <% }) %>
+</ol>
+
+
+<form action="/logout?_method=DELETE" method="POST">
+  <button type="submit">Log Out</button>
+</form>
